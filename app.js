@@ -37,3 +37,29 @@ function atualizarLista() {
     }
 
 }
+// Função para sortear os amigos
+function sortearAmigo() {
+    if (amigos ==0) {
+        alert("Adicione pelo menos um amigo antes de sortear.");
+        return;
+    }
+
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+  const amigoSorteado = amigos[indiceAleatorio];
+
+  const resultado = document.getElementById("resultado");
+  resultado.innerHTML = `<li>Amigo secreto sorteado: <strong>${amigoSorteado}</strong></li>`;
+}
+
+// 🔹 Torna as funções acessíveis para o HTML
+window.adicionarAmigo = adicionarAmigo;
+window.sortearAmigo = sortearAmigo;
+
+// Função para reiniciar a lista e resultados
+function reiniciarLista() {
+    amigos = []; // esvazia o array
+    document.getElementById("listaAmigos").innerHTML = "";
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("amigo").value = "";
+    alert("Lista reiniciada com sucesso!");
+}
